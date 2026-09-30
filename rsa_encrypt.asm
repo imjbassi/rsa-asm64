@@ -1,11 +1,12 @@
-; rsa_encrypt.asm - make sure parameters are passed correctly
+; rsa_encrypt.asm — encryption wrapper
 section .text
 global rsa_encrypt
 extern modexp
 
 ; uint64_t rsa_encrypt(uint64_t msg, uint64_t e, uint64_t n)
+; c = msg^e mod n. Arguments are already in the registers modexp
+; expects, so this is a pure tail call.
 rsa_encrypt:
-    ; Parameters are already in the right registers:
-    ; rdi = msg, rsi = e, rdx = n
-    call modexp
-    ret
+    jmp modexp
+
+section .note.GNU-stack noalloc noexec nowrite progbits

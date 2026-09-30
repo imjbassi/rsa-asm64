@@ -1,0 +1,8 @@
+# RSA round-trip test vectors (verified independently with Python's pow)
+# Format: p q e message expected_ciphertext
+61 53 17 65 2790
+2 7 5 3 5
+7 11 7 5 47
+101 103 257 1234 4116
+65537 65539 17 123456 2261109450
+4294967291 4294967279 65537 123456789 17663059933123306112

@@ -8,6 +8,7 @@ OBJS = \
     bignum.o \
     modexp.o \
     gcd.o \
+    primality.o \
     rsa_keygen.o \
     rsa_encrypt.o \
     rsa_decrypt.o \
@@ -21,5 +22,10 @@ all: rsa
 rsa: $(OBJS)
 	$(LD) $(LDFLAGS) -o $@ $(OBJS)
 
+test: rsa
+	./run_tests.sh
+
 clean:
 	rm -f $(OBJS) rsa
+
+.PHONY: all test clean
